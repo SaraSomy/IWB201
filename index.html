@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>TIC_IWB201_S22</title>
+  </head>
+  <body dir="rtl">
+    <h1 id="main-title">إضافة طالب</h1>
+    <!-- first div contains form -->
+    <div>
+      <form class="registForm" id="regist-Form"   >
+        <!-- User name field -->
+        <label class="input-field" for="userName">اسم الطالب  :</label>
+        <input
+         class="inputVal"
+          type="text"
+          id="userName"
+          name="userName"
+          placeholder="مثال : عزيز ليوس"
+          required autofocus
+        />
+        <p id="userNameError"  class="errorMsg"></p>
+        <br />
+        <!--finish with p to view error message  -->
+
+        <!-- Student name field -->
+        <label class="input-field " for="studentName">اسم المستخدم :</label>
+        <input
+        class="inputVal"
+
+          type="text"
+          id="studentName"
+          name="studentName"
+          placeholder="Aziz_212345"
+          required autofocus
+
+        />
+        <p id="studentNameError" class="errorMsg"></p>
+        <br />
+        <label class="input-field " for="DOB" >تاريخ الولادة :</label>
+        <input type="date" id="DOB"   class="inputVal"
+        name="DOB"  required/><br />
+        <label class="input-field" for="course"> البرنامج :</label>
+        <select name="course" required  class="inputVal">
+          
+          <option value="BIT">BIT</option>
+          <option value="TIC">TIC</option>
+          <option value="BACT">BACT</option>
+          <option value="BAIT">BAIT</option>
+        </select
+        ><br />
+        <label class="input-field" for="mobile">الموبايل :</label>
+        <input
+        class="inputVal"
+
+          type="text"
+          id="mobile"
+          name="mobile"
+          placeholder="0953305310"
+          required autofocus
+
+        />
+        <p class="errorMsg" id="mobileError"></p>
+        <br />
+        <br />
+        <!-- captcha value will set in this p -->
+        <p  id="captcha-code"></p>
+        <label class="input-field" for="captcha"
+          > يرجى إدخال رمز التحقق كابتشا :</label
+        >
+        <input
+        class="inputVal"
+
+          type="text"
+          id="captcha"
+          name="captcha"          
+          required
+
+        /><br />
+        <p class="errorMsg" id="captchaError"></p>
+        <br>
+        <button type="submit" id="submit-btn" >إضافة</button>
+      </form>
+    </div>
+    <hr></hr>
+<!-- students table with its option to filtering and sorting -->
+    <div id="contents">
+    <h2 id="table-title">جدول بأسماء الطلاب</h2>
+    
+    <div>
+      <label class="input-field" for="course">البرنامج</label>
+      <select name="course" id="course-select">
+        <option value="all">الكل</option>
+        <option value="BIT">BIT</option>
+        <option value="TIC">TIC</option>
+        <option value="BACT">BACT</option>
+        <option value="BAIT">BAIT</option>
+         </select
+      >
+      <br />
+      <form class="sortingForm" method="get" id="sort-table">
+        <p>الفرز حسب :</p>
+         
+        
+        <label for="idUser"  >الرقم</label>  
+        <input
+          type="radio"
+          id="idSelect"
+          name="sortingBtn"
+          value="ID"
+        />
+          <label for="courseName">البرنامج</label>  
+        <input
+          type="radio"
+          id="courseSelect"
+          name="sortingBtn"
+          value="course"
+        />
+          <label for="userNameSelect">اسم الطالب</label> 
+        <input
+        type="radio"
+        id="userNameSelect"
+        name="sortingBtn"
+        value="userName"
+      />
+      </form>
+    </div>
+
+    <div>
+      <table style="width: 75%"  id="table-students">
+        <thead>
+          <tr>
+             <th style="width: 75px;">الرقم المتسلسل</th>
+             <th>اسم الطالب</th>
+             <th>اسم المستخدم</th>
+             <th>البرنامج</th>
+             
+          </tr>
+       </thead>
+       <!-- values of cells will come from Array of students in index.js file -->
+       <tbody id="students-cells">
+       </tbody>
+       
+      </table>
+    </div>
+
+  </div>
+    <div class="jsonFormatBtn" >
+<!-- after click this button it will convert data in table to JSON object -->
+      <button id="convert-json2html">
+        convert to JSON
+        
+        </button> <br />
+        <!-- it will show empty array when window loaded -->
+      <div id="json-container">
+
+      </div>
+
+    </div>
+    <script src="./index.js">
+      
+      
+    </script>
+  </body>
+</html>
